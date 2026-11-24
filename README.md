@@ -1,6 +1,6 @@
 # Replication Package: Counting-Rule Instability in Bibliometric Science Maps
 
-This archive accompanies the manuscript *"Counting-Rule Instability in Bibliometric Science Maps: Normalization Analysis and Stratified Empirical Audit"* (N. Long Ha, University of Economics, Hue University, `hnlong@hueuni.edu.vn`, ORCID `0000-0002-5673-2812`).
+This archive accompanies the manuscript *"Counting-Rule Instability in Bibliometric Science Maps: Normalization Analysis and Stratified Empirical Audit"* by N. Long Ha (Faculty of Economic Information Systems, University of Economics, Hue University; `hnlong@hueuni.edu.vn`; ORCID `0000-0002-5673-2812`) and S. Huong Do (Faculty of Accounting and Finance, University of Economics, Hue University; `dshuong@hueuni.edu.vn`; ORCID `0000-0002-3046-9032`).
 
 ## Contents
 
@@ -10,7 +10,7 @@ This archive accompanies the manuscript *"Counting-Rule Instability in Bibliomet
 - `experiments/tests/` — Automated unit and parity tests (`test_box1_parity.py`, `test_counting_engine.py`, `test_extract_audit_features.py`).
 - `experiments/results/` — Anonymized JSON analysis summaries (`layer0_population_balance.json`, `layer1_final_adjudicated_census.json`, `layer1_llm_provisional_census.json`, `layer2_counting_audit_production.json`, `layer2_v1_expanded_benchmark.json`, `layer2_s1_and_rb_diagnostics.json`, `layer2_s2_s3_sensitivity.json`) and the structured verification workbook (`author_verification_pack.xlsx`).
 - `requirements.txt` — Verified Python dependency list across all archived modules and scripts.
-- `LICENSE` — MIT License (Copyright (c) 2026 N. Long Ha).
+- `LICENSE` — MIT License (Copyright (c) 2026 N. Long Ha and S. Huong Do).
 
 > **Note on licensed/copyrighted third-party materials:** Proprietary Scopus metadata exports and copyrighted full-text publisher PDFs/XMLs cannot be redistributed. Scripts `01_*.py`–`03_*.py` document the exact Scopus/OpenAlex retrieval pipeline for reproduction with institutional API credentials (`SCOPUS_API_KEY`, `OPENALEX_API_KEY`). All Layer-0, Layer-1, and Layer-2 empirical summary outputs, formal symbolic proofs, and package/engine test suites run fully offline.
 

@@ -9,7 +9,12 @@ authors:
     given-names: N. Long
     email: "hnlong@hueuni.edu.vn"
     orcid: "https://orcid.org/0000-0002-5673-2812"
-    affiliation: "University of Economics, Hue University, Vietnam"
+    affiliation: "Faculty of Economic Information Systems, University of Economics, Hue University, Viet Nam"
+  - family-names: Do
+    given-names: S. Huong
+    email: "dshuong@hueuni.edu.vn"
+    orcid: "https://orcid.org/0000-0002-3046-9032"
+    affiliation: "Faculty of Accounting and Finance, University of Economics, Hue University, Viet Nam"
 repository-code: "https://github.com/hangoclong/biblio-audit"
 url: "https://github.com/hangoclong/biblio-audit"
 keywords:
