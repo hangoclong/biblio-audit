@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run unit test suite
+        run: pytest -v
+
+      - name: Run bundled offline demo CLI across all 4 networks
+        run: |
+          python -m biblio_audit \
+            --input examples/demo_scopus.csv \
+            --network all \
+            --thesaurus examples/demo_thesaurus.txt \
+            --seeds 4 \
+            --starts 3 \
+            --json-out demo_out.json \
+            --md-out demo_out.md \
+            --latex-out demo_out.tex \
+            --nodes-csv demo_nodes.csv \
+            --vos-export-dir demo_vos

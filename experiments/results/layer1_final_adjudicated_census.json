@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.2",
+  "n_adjudicated_empirical": 246,
+  "n_qa50_verified": 50,
+  "n_excel_rows_applied": 165,
+  "ht_capped_clustered": {
+    "uses_scopus": {
+      "rate": 0.6767,
+      "se": 0.03,
+      "ci95": [
+        0.6187,
+        0.7351
+      ]
+    },
+    "uses_wos": {
+      "rate": 0.4688,
+      "se": 0.0334,
+      "ci95": [
+        0.4033,
+        0.5367
+      ]
+    },
+    "exact_query_printed": {
+      "rate": 0.6323,
+      "se": 0.0304,
+      "ci95": [
+        0.5731,
+        0.6935
+      ]
+    },
+    "network_fractional_disclosed": {
+      "rate": 0.0341,
+      "se": 0.0116,
+      "ci95": [
+        0.0134,
+        0.0578
+      ]
+    },
+    "null_model_reported": {
+      "rate": 0.0,
+      "se": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "stability_check_reported": {
+      "rate": 0.0108,
+      "se": 0.0068,
+      "ci95": [
+        0.0,
+        0.0261
+      ]
+    },
+    "data_or_code_shared": {
+      "rate": 0.0332,
+      "se": 0.0115,
+      "ci95": [
+        0.0116,
+        0.0563
+      ]
+    }
+  },
+  "ht_article_weighted_cap_adjusted": {
+    "uses_scopus": {
+      "rate": 0.6837,
+      "se": 0.0284,
+      "ci95": [
+        0.6241,
+        0.7362
+      ]
+    },
+    "uses_wos": {
+      "rate": 0.4469,
+      "se": 0.035,
+      "ci95": [
+        0.3831,
+        0.5207
+      ]
+    },
+    "exact_query_printed": {
+      "rate": 0.6335,
+      "se": 0.0276,
+      "ci95": [
+        0.5806,
+        0.6875
+      ]
+    },
+    "network_fractional_disclosed": {
+      "rate": 0.0308,
+      "se": 0.0109,
+      "ci95": [
+        0.0123,
+        0.0545
+      ]
+    },
+    "null_model_reported": {
+      "rate": 0.0,
+      "se": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "stability_check_reported": {
+      "rate": 0.0096,
+      "se": 0.006,
+      "ci95": [
+        0.0,
+        0.0231
+      ]
+    },
+    "data_or_code_shared": {
+      "rate": 0.0354,
+      "se": 0.0125,
+      "ci95": [
+        0.0107,
+        0.0605
+      ]
+    }
+  },
+  "ht_two_stage_ipw_sensitivity": {
+    "uses_scopus": {
+      "rate": 0.6377,
+      "se": 0.0505,
+      "ci95": [
+        0.5385,
+        0.7381
+      ]
+    },
+    "uses_wos": {
+      "rate": 0.485,
+      "se": 0.0528,
+      "ci95": [
+        0.3882,
+        0.5888
+      ]
+    },
+    "exact_query_printed": {
+      "rate": 0.6413,
+      "se": 0.0462,
+      "ci95": [
+        0.5477,
+        0.7293
+      ]
+    },
+    "network_fractional_disclosed": {
+      "rate": 0.0226,
+      "se": 0.0086,
+      "ci95": [
+        0.0088,
+        0.0414
+      ]
+    },
+    "null_model_reported": {
+      "rate": 0.0,
+      "se": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "stability_check_reported": {
+      "rate": 0.0075,
+      "se": 0.0049,
+      "ci95": [
+        0.0,
+        0.0189
+      ]
+    },
+    "data_or_code_shared": {
+      "rate": 0.0233,
+      "se": 0.0094,
+      "ci95": [
+        0.0073,
+        0.0436
+      ]
+    }
+  }
+}

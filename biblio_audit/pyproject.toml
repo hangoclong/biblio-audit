@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "biblio-audit"
+version = "1.0.0"
+description = "VOSviewer-parity full-vs.-fractional counting sensitivity and clustering stability verification tool for bibliometric science maps"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "N. Long Ha", email = "hnlong@hueuni.edu.vn"},
+]
+keywords = [
+    "bibliometrics",
+    "scientometrics",
+    "vosviewer",
+    "fractional-counting",
+    "science-mapping",
+    "leiden-clustering",
+    "reproducibility",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+    "igraph>=0.11.0",
+    "numpy>=1.24.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.11.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4.0"]
+
+[project.scripts]
+biblio-audit = "biblio_audit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/hangoclong/biblio-audit"
+Repository = "https://github.com/hangoclong/biblio-audit"
+Documentation = "https://github.com/hangoclong/biblio-audit#readme"
+Issues = "https://github.com/hangoclong/biblio-audit/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["biblio_audit*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

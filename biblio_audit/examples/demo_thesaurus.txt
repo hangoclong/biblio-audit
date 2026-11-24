@@ -1,0 +1,5 @@
+label	replace by
+ai	artificial intelligence
+ml	machine learning
+smes	small and medium enterprises
+literature review	

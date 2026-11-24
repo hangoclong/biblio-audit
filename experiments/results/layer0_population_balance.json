@@ -1,0 +1,242 @@
+{
+  "generated_utc": "2026-11-22T14:16:55.916236+00:00",
+  "lock_version": "1.2",
+  "total_scopus_busi_raw": 4314,
+  "matched_active_asjc14": 4302,
+  "unmatched_non_active_14xx": 12,
+  "unique_active_journals_with_biblio": 915,
+  "oa_propensity_auc_covariates": 0.5945,
+  "oa_propensity_auc_with_publisher_interaction": 0.8316,
+  "ipw_trim_bounds": [
+    0.1,
+    0.9
+  ],
+  "ipw_kish_ess_ratio_oa": 0.6369,
+  "ipw_oa_min_median_max": [
+    1.111,
+    1.333,
+    10.0
+  ],
+  "positivity_boundary_cells": [
+    {
+      "cell": "Q1__MDPI",
+      "n": 134,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q2__Frontiers",
+      "n": 20,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q2__MDPI",
+      "n": 65,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q3__Frontiers",
+      "n": 1,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q3__MDPI",
+      "n": 5,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q4__Elsevier",
+      "n": 1,
+      "oa_rate": 1.0
+    },
+    {
+      "cell": "Q4__Emerald",
+      "n": 4,
+      "oa_rate": 0.0
+    }
+  ],
+  "strata": {
+    "Q1": {
+      "n_articles": 2191,
+      "weight_Wh": 0.509298,
+      "n_journals": 308,
+      "n_oa_combined": 1044,
+      "oa_share": 0.4765,
+      "n_has_pdf_url": 681,
+      "n_has_green_pdf": 806,
+      "n_elsevier_oa": 200,
+      "n_legal_oa_retrievable_pool": 1041,
+      "oa_status_counts": {
+        "diamond": 91,
+        "closed": 1140,
+        "gold": 364,
+        "green": 180,
+        "bronze": 59,
+        "hybrid": 345,
+        "unknown": 12
+      },
+      "publisher_counts_all": {
+        "Emerald": 734,
+        "Elsevier": 394,
+        "Taylor & Francis": 324,
+        "Springer Nature": 247,
+        "Wiley": 160,
+        "MDPI": 134,
+        "SAGE": 101,
+        "Other": 97
+      },
+      "publisher_counts_oa": {
+        "Elsevier": 200,
+        "Taylor & Francis": 185,
+        "Springer Nature": 183,
+        "Emerald": 134,
+        "MDPI": 134,
+        "Wiley": 94,
+        "Other": 85,
+        "SAGE": 29
+      },
+      "median_cites_oa": 12.0,
+      "median_cites_closed": 13.0,
+      "mw_cites_p": 0.597021,
+      "mean_year_oa": 2023.941,
+      "mean_year_closed": 2023.843,
+      "mw_year_p": 0.206681
+    },
+    "Q2": {
+      "n_articles": 909,
+      "weight_Wh": 0.211297,
+      "n_journals": 250,
+      "n_oa_combined": 564,
+      "oa_share": 0.6205,
+      "n_has_pdf_url": 417,
+      "n_has_green_pdf": 443,
+      "n_elsevier_oa": 64,
+      "n_legal_oa_retrievable_pool": 561,
+      "oa_status_counts": {
+        "closed": 320,
+        "diamond": 177,
+        "unknown": 29,
+        "gold": 252,
+        "green": 32,
+        "bronze": 30,
+        "hybrid": 69
+      },
+      "publisher_counts_all": {
+        "Other": 333,
+        "Emerald": 131,
+        "Taylor & Francis": 86,
+        "Elsevier": 77,
+        "SAGE": 70,
+        "Springer Nature": 69,
+        "MDPI": 65,
+        "Wiley": 41,
+        "Frontiers": 20,
+        "Inderscience": 17
+      },
+      "publisher_counts_oa": {
+        "Other": 297,
+        "MDPI": 65,
+        "Elsevier": 64,
+        "Emerald": 40,
+        "Springer Nature": 24,
+        "Wiley": 20,
+        "Frontiers": 20,
+        "Taylor & Francis": 18,
+        "SAGE": 11,
+        "Inderscience": 5
+      },
+      "median_cites_oa": 5.0,
+      "median_cites_closed": 5.0,
+      "mw_cites_p": 0.532539,
+      "mean_year_oa": 2024.028,
+      "mean_year_closed": 2024.032,
+      "mw_year_p": 0.655099
+    },
+    "Q3": {
+      "n_articles": 843,
+      "weight_Wh": 0.195955,
+      "n_journals": 235,
+      "n_oa_combined": 505,
+      "oa_share": 0.5991,
+      "n_has_pdf_url": 413,
+      "n_has_green_pdf": 422,
+      "n_elsevier_oa": 0,
+      "n_legal_oa_retrievable_pool": 496,
+      "oa_status_counts": {
+        "diamond": 247,
+        "hybrid": 48,
+        "gold": 145,
+        "green": 21,
+        "bronze": 35,
+        "closed": 273,
+        "unknown": 74
+      },
+      "publisher_counts_all": {
+        "Other": 487,
+        "Inderscience": 176,
+        "Taylor & Francis": 82,
+        "Springer Nature": 51,
+        "Emerald": 17,
+        "SAGE": 16,
+        "Wiley": 8,
+        "MDPI": 5,
+        "Frontiers": 1
+      },
+      "publisher_counts_oa": {
+        "Other": 391,
+        "Taylor & Francis": 61,
+        "Inderscience": 26,
+        "Springer Nature": 8,
+        "Wiley": 6,
+        "MDPI": 5,
+        "SAGE": 4,
+        "Emerald": 3,
+        "Frontiers": 1
+      },
+      "median_cites_oa": 2.0,
+      "median_cites_closed": 1.0,
+      "mw_cites_p": 0.134475,
+      "mean_year_oa": 2024.111,
+      "mean_year_closed": 2024.257,
+      "mw_year_p": 0.133872
+    },
+    "Q4": {
+      "n_articles": 359,
+      "weight_Wh": 0.08345,
+      "n_journals": 122,
+      "n_oa_combined": 166,
+      "oa_share": 0.4624,
+      "n_has_pdf_url": 135,
+      "n_has_green_pdf": 142,
+      "n_elsevier_oa": 1,
+      "n_legal_oa_retrievable_pool": 166,
+      "oa_status_counts": {
+        "diamond": 117,
+        "closed": 94,
+        "unknown": 99,
+        "green": 7,
+        "bronze": 15,
+        "hybrid": 21,
+        "gold": 6
+      },
+      "publisher_counts_all": {
+        "Other": 232,
+        "Inderscience": 81,
+        "Taylor & Francis": 41,
+        "Emerald": 4,
+        "Elsevier": 1
+      },
+      "publisher_counts_oa": {
+        "Other": 155,
+        "Inderscience": 8,
+        "Taylor & Francis": 2,
+        "Elsevier": 1
+      },
+      "median_cites_oa": 1.0,
+      "median_cites_closed": 1.0,
+      "mw_cites_p": 0.611297,
+      "mean_year_oa": 2024.181,
+      "mean_year_closed": 2023.953,
+      "mw_year_p": 0.322495
+    }
+  }
+}

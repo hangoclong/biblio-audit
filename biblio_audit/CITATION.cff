@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "biblio-audit: VOSviewer-Parity Counting Sensitivity and Clustering Stability Auditor"
+message: "If you use biblio-audit in academic work, please cite this software and its accompanying methodology paper."
+type: software
+version: "1.0.0"
+license: MIT
+authors:
+  - family-names: Ha
+    given-names: N. Long
+    email: "hnlong@hueuni.edu.vn"
+    orcid: "https://orcid.org/0000-0002-5673-2812"
+    affiliation: "University of Economics, Hue University, Vietnam"
+repository-code: "https://github.com/hangoclong/biblio-audit"
+url: "https://github.com/hangoclong/biblio-audit"
+keywords:
+  - bibliometrics
+  - scientometrics
+  - fractional counting
+  - association strength
+  - vosviewer
+  - leiden clustering
+  - reproducibility

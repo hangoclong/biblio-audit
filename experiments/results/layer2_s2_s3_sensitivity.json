@@ -1,0 +1,573 @@
+{
+  "generated_utc": "2026-11-24T06:14:44.764151+00:00",
+  "lock_version": "1.2",
+  "n_manifest": 59,
+  "s2_database_swap": {
+    "n_scopus_attempted": 38,
+    "n_ok": 29,
+    "mean_retrieval_jaccard": 0.2967,
+    "median_retrieval_jaccard": 0.2681,
+    "delta_count_intersection_mean_ci95": {
+      "mean": 0.3059,
+      "ci95": [
+        0.2508,
+        0.3599
+      ]
+    },
+    "reviews": [
+      {
+        "doi": "10.1057/s41599-025-05884-8",
+        "quartile": "Q1",
+        "journal_key": "26629992",
+        "network_type": "co_citation",
+        "n_scopus": 216,
+        "n_openalex": 1071,
+        "n_intersection": 150,
+        "retrieval_jaccard": 0.1319,
+        "delta_count_on_intersection": 0.3426,
+        "core_reassignment_on_intersection": 0.3052,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1016/j.jbusres.2021.03.056",
+        "quartile": "Q1",
+        "journal_key": "01482963",
+        "network_type": "co_citation",
+        "n_scopus": 375,
+        "n_openalex": 573,
+        "n_intersection": 283,
+        "retrieval_jaccard": 0.4256,
+        "delta_count_on_intersection": 0.411,
+        "core_reassignment_on_intersection": 0.3321,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1108/medar-10-2021-1470",
+        "quartile": "Q1",
+        "journal_key": "2049372X",
+        "network_type": "co_citation",
+        "n_scopus": 311,
+        "n_openalex": 814,
+        "n_intersection": 299,
+        "retrieval_jaccard": 0.362,
+        "delta_count_on_intersection": 0.1537,
+        "core_reassignment_on_intersection": 0.2855,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1186/s13731-026-00679-w",
+        "quartile": "Q1",
+        "journal_key": "21925372",
+        "status": "oa_skip:1"
+      },
+      {
+        "doi": "10.1186/s13731-025-00612-7",
+        "quartile": "Q1",
+        "journal_key": "21925372",
+        "n_scopus": 98,
+        "n_openalex": 6457,
+        "n_intersection": 42,
+        "retrieval_jaccard": 0.0064,
+        "status": "small_intersection"
+      },
+      {
+        "doi": "10.1016/j.jik.2025.100908",
+        "quartile": "Q1",
+        "journal_key": "25307614",
+        "n_scopus": 4958,
+        "n_openalex": 67,
+        "n_intersection": 27,
+        "retrieval_jaccard": 0.0054,
+        "status": "small_intersection"
+      },
+      {
+        "doi": "10.1016/j.jdec.2023.03.004",
+        "quartile": "Q1",
+        "journal_key": "27730670",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 1478,
+        "n_openalex": 4192,
+        "n_intersection": 571,
+        "retrieval_jaccard": 0.112,
+        "delta_count_on_intersection": 0.1606,
+        "core_reassignment_on_intersection": 0.05,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1016/j.apmrv.2024.12.001",
+        "quartile": "Q1",
+        "journal_key": "10293132",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 6713,
+        "n_openalex": 3416,
+        "n_intersection": 1629,
+        "retrieval_jaccard": 0.1916,
+        "delta_count_on_intersection": 0.5078,
+        "core_reassignment_on_intersection": 0.1467,
+        "status": "ok"
+      },
+      {
+        "doi": "10.3390/admsci13030075",
+        "quartile": "Q1",
+        "journal_key": "20763387",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 213,
+        "n_openalex": 863,
+        "n_intersection": 136,
+        "retrieval_jaccard": 0.1447,
+        "delta_count_on_intersection": 0.3547,
+        "core_reassignment_on_intersection": 0.3131,
+        "status": "ok"
+      },
+      {
+        "doi": "10.3390/jrfm18110658",
+        "quartile": "Q1",
+        "journal_key": "19118066",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 670,
+        "n_openalex": 4305,
+        "n_intersection": 213,
+        "retrieval_jaccard": 0.0447,
+        "delta_count_on_intersection": 0.3277,
+        "core_reassignment_on_intersection": 0.3488,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1108/bij-10-2023-0717",
+        "quartile": "Q1",
+        "journal_key": "14635771",
+        "status": "oa_skip:21"
+      },
+      {
+        "doi": "10.1108/jec-11-2024-0235",
+        "quartile": "Q1",
+        "journal_key": "17506204",
+        "status": "oa_skip:0"
+      },
+      {
+        "doi": "10.1002/mar.21864",
+        "quartile": "Q1",
+        "journal_key": "07426046",
+        "status": "oa_skip:10"
+      },
+      {
+        "doi": "10.1016/j.jfds.2023.100102",
+        "quartile": "Q1",
+        "journal_key": "24059188",
+        "network_type": "co_citation",
+        "n_scopus": 1204,
+        "n_openalex": 952,
+        "n_intersection": 415,
+        "retrieval_jaccard": 0.2384,
+        "delta_count_on_intersection": 0.267,
+        "core_reassignment_on_intersection": 0.1875,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1017/jmo.2025.10079",
+        "quartile": "Q1",
+        "journal_key": "18333672",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 5753,
+        "n_openalex": 326,
+        "n_intersection": 84,
+        "retrieval_jaccard": 0.014,
+        "delta_count_on_intersection": 0.6558,
+        "core_reassignment_on_intersection": 0.4328,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1108/scm-01-2021-0053",
+        "quartile": "Q1",
+        "journal_key": "13598546",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 1973,
+        "n_openalex": 3506,
+        "n_intersection": 1720,
+        "retrieval_jaccard": 0.4576,
+        "delta_count_on_intersection": 0.4588,
+        "core_reassignment_on_intersection": 0.4089,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1002/csr.2909",
+        "quartile": "Q1",
+        "journal_key": "15353958",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 671,
+        "n_openalex": 1169,
+        "n_intersection": 616,
+        "retrieval_jaccard": 0.5033,
+        "delta_count_on_intersection": 0.3456,
+        "core_reassignment_on_intersection": 0.4177,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1007/s11301-021-00213-0",
+        "quartile": "Q1",
+        "journal_key": "21981620",
+        "network_type": "co_citation",
+        "n_scopus": 800,
+        "n_openalex": 1452,
+        "n_intersection": 748,
+        "retrieval_jaccard": 0.4973,
+        "delta_count_on_intersection": 0.3553,
+        "core_reassignment_on_intersection": 0.1787,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1007/s12063-022-00328-x",
+        "quartile": "Q1",
+        "journal_key": "19369735",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 269,
+        "n_openalex": 574,
+        "n_intersection": 258,
+        "retrieval_jaccard": 0.441,
+        "delta_count_on_intersection": 0.3138,
+        "core_reassignment_on_intersection": 0.4336,
+        "status": "ok"
+      },
+      {
+        "doi": "10.14596/pisb.5402",
+        "quartile": "Q4",
+        "journal_key": "03947947",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 1621,
+        "n_openalex": 1234,
+        "n_intersection": 221,
+        "retrieval_jaccard": 0.0839,
+        "delta_count_on_intersection": 0.2364,
+        "core_reassignment_on_intersection": 0.2481,
+        "status": "ok"
+      },
+      {
+        "doi": "10.18421/tem151-26",
+        "quartile": "Q3",
+        "journal_key": "22178309",
+        "network_type": "co_citation",
+        "n_scopus": 959,
+        "n_openalex": 263,
+        "n_intersection": 89,
+        "retrieval_jaccard": 0.0786,
+        "delta_count_on_intersection": 0.2613,
+        "core_reassignment_on_intersection": 0.2396,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1016/j.sftr.2026.101841",
+        "quartile": "Q2",
+        "journal_key": "26661888",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 103,
+        "n_openalex": 219,
+        "n_intersection": 57,
+        "retrieval_jaccard": 0.2151,
+        "delta_count_on_intersection": 0.3923,
+        "core_reassignment_on_intersection": 0.3424,
+        "status": "ok"
+      },
+      {
+        "doi": "10.24840/2183-0606_013.004_0003",
+        "quartile": "Q2",
+        "journal_key": "21830606",
+        "network_type": "co_citation",
+        "n_scopus": 93,
+        "n_openalex": 109,
+        "n_intersection": 79,
+        "retrieval_jaccard": 0.6423,
+        "delta_count_on_intersection": 0.5217,
+        "core_reassignment_on_intersection": 0.3333,
+        "status": "ok"
+      },
+      {
+        "doi": "10.55845/vqv5ma96",
+        "quartile": "Q4",
+        "journal_key": "30523761",
+        "network_type": "co_citation",
+        "n_scopus": 1402,
+        "n_openalex": 979,
+        "n_intersection": 663,
+        "retrieval_jaccard": 0.3859,
+        "delta_count_on_intersection": 0.3034,
+        "core_reassignment_on_intersection": 0.1738,
+        "status": "ok"
+      },
+      {
+        "doi": "10.32479/irmm.17907",
+        "quartile": "Q3",
+        "journal_key": "21464405",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 564,
+        "n_openalex": 453,
+        "n_intersection": 134,
+        "retrieval_jaccard": 0.1518,
+        "delta_count_on_intersection": 0.3072,
+        "core_reassignment_on_intersection": 0.4159,
+        "status": "ok"
+      },
+      {
+        "doi": "10.47743/saeb-2026-0020",
+        "quartile": "Q3",
+        "journal_key": "25011960",
+        "network_type": "co_citation",
+        "n_scopus": 1789,
+        "n_openalex": 2787,
+        "n_intersection": 1570,
+        "retrieval_jaccard": 0.5223,
+        "delta_count_on_intersection": 0.1338,
+        "core_reassignment_on_intersection": 0.0333,
+        "status": "ok"
+      },
+      {
+        "doi": "10.31387/oscm0660537",
+        "quartile": "Q2",
+        "journal_key": "19793561",
+        "status": "oa_skip:62673"
+      },
+      {
+        "doi": "10.1007/s43546-026-01315-1",
+        "quartile": "Q3",
+        "journal_key": "26629399",
+        "status": "oa_skip:20550"
+      },
+      {
+        "doi": "10.33893/fer.25.3.49",
+        "quartile": "Q4",
+        "journal_key": "24159271",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 246,
+        "n_openalex": 473,
+        "n_intersection": 152,
+        "retrieval_jaccard": 0.2681,
+        "delta_count_on_intersection": 0.3231,
+        "core_reassignment_on_intersection": 0.4282,
+        "status": "ok"
+      },
+      {
+        "doi": "10.33168/jliss.2024.0119",
+        "quartile": "Q3",
+        "journal_key": "24092665",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 149,
+        "n_openalex": 1380,
+        "n_intersection": 115,
+        "retrieval_jaccard": 0.0813,
+        "delta_count_on_intersection": 0.0498,
+        "core_reassignment_on_intersection": 0.0339,
+        "status": "ok"
+      },
+      {
+        "doi": "10.2478/sbe-2024-0040",
+        "quartile": "Q2",
+        "journal_key": "18424120",
+        "status": "oa_skip:1"
+      },
+      {
+        "doi": "10.32479/irmm.19843",
+        "quartile": "Q3",
+        "journal_key": "21464405",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 255,
+        "n_openalex": 516,
+        "n_intersection": 168,
+        "retrieval_jaccard": 0.2786,
+        "delta_count_on_intersection": 0.3121,
+        "core_reassignment_on_intersection": 0.3957,
+        "status": "ok"
+      },
+      {
+        "doi": "10.30892/gtg.68428-1909",
+        "quartile": "Q2",
+        "journal_key": "20650817",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 190,
+        "n_openalex": 370,
+        "n_intersection": 182,
+        "retrieval_jaccard": 0.4815,
+        "delta_count_on_intersection": 0.2305,
+        "core_reassignment_on_intersection": 0.3875,
+        "status": "ok"
+      },
+      {
+        "doi": "10.31387/oscm0500351",
+        "quartile": "Q2",
+        "journal_key": "19793561",
+        "network_type": "co_citation",
+        "n_scopus": 741,
+        "n_openalex": 751,
+        "n_intersection": 423,
+        "retrieval_jaccard": 0.3957,
+        "delta_count_on_intersection": 0.3083,
+        "core_reassignment_on_intersection": 0.12,
+        "status": "ok"
+      },
+      {
+        "doi": "10.14419/k0vmt008",
+        "quartile": "Q4",
+        "journal_key": "23094508",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 119,
+        "n_openalex": 478,
+        "n_intersection": 100,
+        "retrieval_jaccard": 0.2012,
+        "delta_count_on_intersection": 0.2053,
+        "core_reassignment_on_intersection": 0.1592,
+        "status": "ok"
+      },
+      {
+        "doi": "10.1007/s12208-026-00473-0",
+        "quartile": "Q2",
+        "journal_key": "18651984",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 244,
+        "n_openalex": 331,
+        "n_intersection": 177,
+        "retrieval_jaccard": 0.4447,
+        "delta_count_on_intersection": 0.3677,
+        "core_reassignment_on_intersection": 0.2,
+        "status": "ok"
+      },
+      {
+        "doi": "10.33168/jliss.2024.0703",
+        "quartile": "Q3",
+        "journal_key": "24092665",
+        "network_type": "co_citation",
+        "n_scopus": 817,
+        "n_openalex": 1228,
+        "n_intersection": 746,
+        "retrieval_jaccard": 0.5743,
+        "delta_count_on_intersection": 0.0258,
+        "core_reassignment_on_intersection": 0.0067,
+        "status": "ok"
+      },
+      {
+        "doi": "10.31387/oscm0650518",
+        "quartile": "Q2",
+        "journal_key": "19793561",
+        "network_type": "bibliographic_coupling",
+        "n_scopus": 588,
+        "n_openalex": 363,
+        "n_intersection": 180,
+        "retrieval_jaccard": 0.2335,
+        "delta_count_on_intersection": 0.2377,
+        "core_reassignment_on_intersection": 0.3313,
+        "status": "ok"
+      }
+    ]
+  },
+  "s3_ai_hrm_dark_side": {
+    "n_focal_bc_reviews": 6,
+    "n_with_dark_side_ge_3": 4,
+    "mean_delta_peak_dark_share": 0.0038,
+    "mean_abs_rank_shift": 0.762,
+    "reviews": [
+      {
+        "doi": "10.1017/jmo.2025.10079",
+        "quartile": "Q1",
+        "title": "Strategic considerations for digitalising humanitarian supply chains for resilience: A bibliometric analysis",
+        "n_lcc": 150,
+        "n_dark_side_docs": 3,
+        "dark_side_corpus_share": 0.02,
+        "full_peak_dark_cluster_share": 0.0632,
+        "frac_peak_dark_cluster_share": 0.0714,
+        "delta_peak_dark_share": 0.0082,
+        "full_dark_cluster_rank": 3.8,
+        "frac_dark_cluster_rank": 5.0,
+        "full_dark_hhi": 0.4667,
+        "frac_dark_hhi": 0.3333,
+        "cross_ami_default_gamma": 0.7872
+      },
+      {
+        "doi": "10.32479/irmm.17907",
+        "quartile": "Q3",
+        "title": "A Comprehensive and In-depth Bibliometric Analysis of Human Resource Management Practices in Small and Medium Sizes: Trends, Influences, and Future Directions",
+        "n_lcc": 150,
+        "n_dark_side_docs": 8,
+        "dark_side_corpus_share": 0.0533,
+        "full_peak_dark_cluster_share": 0.0693,
+        "frac_peak_dark_cluster_share": 0.0786,
+        "delta_peak_dark_share": 0.0093,
+        "full_dark_cluster_rank": 2.0,
+        "frac_dark_cluster_rank": 1.0,
+        "full_dark_hhi": 0.3734,
+        "frac_dark_hhi": 0.375,
+        "cross_ami_default_gamma": 0.2823
+      },
+      {
+        "doi": "10.6018/rcsar.428041",
+        "quartile": "Q2",
+        "title": "Internet Related Technologies in the auditing profession: A WOS bibliometric review of the past three decades and conceptual structure mapping",
+        "n_lcc": 85,
+        "n_dark_side_docs": 20,
+        "dark_side_corpus_share": 0.2353,
+        "full_peak_dark_cluster_share": 0.4286,
+        "frac_peak_dark_cluster_share": 0.4261,
+        "delta_peak_dark_share": -0.0024,
+        "full_dark_cluster_rank": 2.0,
+        "frac_dark_cluster_rank": 2.4,
+        "full_dark_hhi": 0.33,
+        "frac_dark_hhi": 0.322,
+        "cross_ami_default_gamma": 0.7604
+      },
+      {
+        "doi": "10.30892/gtg.68428-1909",
+        "quartile": "Q2",
+        "title": "MAPPING THE GLOBAL RESEARCH LANDSCAPE OF WORKING POVERTY: A BIBLIOMETRIC ANALYSIS OF \u201cWORKING POOR\u201d AND \u201cIN-WORK POVERTY\u201d",
+        "n_lcc": 122,
+        "n_dark_side_docs": 115,
+        "dark_side_corpus_share": 0.9426,
+        "full_peak_dark_cluster_share": 1.0,
+        "frac_peak_dark_cluster_share": 1.0,
+        "delta_peak_dark_share": 0.0,
+        "full_dark_cluster_rank": 1.45,
+        "frac_dark_cluster_rank": 1.0,
+        "full_dark_hhi": 0.1442,
+        "frac_dark_hhi": 0.1673,
+        "cross_ami_default_gamma": 0.4927
+      }
+    ]
+  },
+  "sensitivity_ladder": {
+    "top100_vos": {
+      "n_nondegenerate": 59,
+      "n_degenerate": 0,
+      "ht4_delta_count_mean": 0.2999,
+      "ci95": [
+        0.264,
+        0.341
+      ],
+      "rope_verdict": "Zone_2_Mandatory_Verification_Gate"
+    },
+    "top150_vos_nomerge": {
+      "n_nondegenerate": 59,
+      "n_degenerate": 0,
+      "ht4_delta_count_mean": 0.3283,
+      "ci95": [
+        0.2891,
+        0.372
+      ],
+      "rope_verdict": "Zone_2_Mandatory_Verification_Gate"
+    },
+    "top150_vos_1start": {
+      "n_nondegenerate": 59,
+      "n_degenerate": 0,
+      "ht4_delta_count_mean": 0.2356,
+      "ci95": [
+        0.2104,
+        0.2635
+      ],
+      "rope_verdict": "Zone_2_Mandatory_Verification_Gate"
+    },
+    "top250_vos": {
+      "n_nondegenerate": 59,
+      "n_degenerate": 0,
+      "ht4_delta_count_mean": 0.3297,
+      "ci95": [
+        0.2959,
+        0.3702
+      ],
+      "rope_verdict": "Zone_2_Mandatory_Verification_Gate"
+    }
+  }
+}
