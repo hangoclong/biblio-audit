@@ -1,13 +1,14 @@
 """Clean-room multi-database parsers for bibliometric exports.
 
-Supports six standard bibliometric export formats with automatic format detection,
+Supports seven standard bibliometric export formats across five databases with automatic format detection,
 multi-file ingestion with deduplication, and VOSviewer 2-column thesaurus loading:
 1. Scopus CSV (both legacy comma-author and 2023-2026 semicolon-author `References` formats)
 2. Web of Science Tab-Delimited (`.txt` / `.tsv`)
 3. Web of Science Plain Text (`FN Clarivate Analytics Web of Science` / `VR 1.0`)
-4. OpenAlex JSON (API list / `{"results": [...]}` / `{"works": [...]}`) and OpenAlex CSV (`|`-delimited)
-5. Dimensions CSV (with or without 1-line `"About the data..."` preamble; pipe-delimited `Cited references`)
-6. Lens.org CSV (natural-order `Author/s` with surname-particle handling and 15-digit Lens ID `References`)
+4. OpenAlex JSON (API list / `{"results": [...]}` / `{"works": [...]}`)
+5. OpenAlex CSV (`|`-delimited)
+6. Dimensions CSV (with or without 1-line `"About the data..."` preamble; pipe-delimited `Cited references`)
+7. Lens.org CSV (natural-order `Author/s` with surname-particle handling and 15-digit Lens ID `References`)
 """
 
 from __future__ import annotations

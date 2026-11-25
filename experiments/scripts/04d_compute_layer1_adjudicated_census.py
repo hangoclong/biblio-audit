@@ -293,7 +293,7 @@ def main() -> None:
         "regex_vs_llm_n246": regex_vs_llm,
     }
 
-    out_path = RES_DIR / "layer1_llm_provisional_census.json"
+    out_path = RES_DIR / "layer1_final_adjudicated_census.json"
     out_path.write_text(json.dumps(out, indent=2), encoding="utf-8")
     LOGGER.info("Saved adjudicated Layer-1 census (n=%d, %d journals) to %s", len(flat), out["corpus_funnel"]["layer1_unique_journals"], out_path)
     for k, _, lbl in FIELDS:

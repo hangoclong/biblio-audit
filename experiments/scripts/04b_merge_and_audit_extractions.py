@@ -9,7 +9,7 @@ Verification specification:
   3. `layer1_disagreements_merged.json` (`Layer1_Disagreements`, ALL remaining Regex-vs-LLM conflicts across ~200 articles).
 - Mode `--finalize-l1-excel <xlsx>`: ingests author-signed `author_verification_pack.xlsx`, applies `FIX`
   adjudications, and outputs final author-adjudicated Layer-1 HT (capped + cap-adjusted + Two-Stage IPW) 95% CIs
-  using the exact canonical bootstrap seed schedule shared with `04d_compute_layer1_provisional_census.py`.
+  using the exact canonical bootstrap seed schedule shared with `04d_compute_layer1_adjudicated_census.py`.
 """
 
 from __future__ import annotations

@@ -1,14 +1,14 @@
 # Replication Package: Counting-Rule Instability in Bibliometric Science Maps
 
-This archive accompanies the manuscript *"Counting-Rule Instability in Bibliometric Science Maps: Normalization Analysis and Stratified Empirical Audit"* by N. Long Ha (Faculty of Economic Information Systems, University of Economics, Hue University; `hnlong@hueuni.edu.vn`; ORCID `0000-0002-5673-2812`) and S. Huong Do (Faculty of Accounting and Finance, University of Economics, Hue University; `dshuong@hueuni.edu.vn`; ORCID `0000-0002-3046-9032`).
+This archive accompanies the manuscript *"Counting-Rule Instability in Bibliometric Science Maps: Normalization Analysis and Stratified Empirical Audit"* by N. Long Ha (Faculty of Economic Information Systems, University of Economics, Hue University; `hnlong@hueuni.edu.vn`; ORCID `0000-0002-5673-2812`) and S. Huong Do (Faculty of Accounting and Finance, University of Economics, Hue University; `dshuong@hueuni.edu.vn`; ORCID `0000-0002-3046-9032`). Permanent archival Concept DOI: `https://doi.org/10.5281/zenodo.24492268` | Source repository: `https://github.com/hangoclong/biblio-audit`.
 
 ## Contents
 
 - `biblio_audit/` — Clean-room MIT-licensed Python package (`biblio-audit` v1.0.0) implementing VOSviewer 1.6.20/1.6.21 normalization parity (`VOS_AS_CPM`, `VOS_Frac_CPM`, `Leiden_RBConfig`), matched-granularity resolution sweeps, `Delta_count`, exact `O(N)` `ECS` / hypergeometric `AECS`, metric `VI`, Hungarian core-node reassignment, causal temporal bipartite null models, and multi-database parsers.
 - `experiments/src_audit/` — Experiment counting engine (`counting_engine.py`) and full-text reporting feature parser (`extract_audit_features.py`).
-- `experiments/scripts/` — Deterministic data-harvesting, corpus-reconstruction, Layer-0/1/2 analysis scripts (`01_*.py` to `08_*.py`), and the symbolic/rational formal verification suite (`verify_propositions_sympy.py`).
+- `experiments/scripts/` — Deterministic data-harvesting, corpus-reconstruction, Layer-0/1/2 analysis scripts (`01_*.py` to `09_*.py`), and the symbolic/rational formal verification suite (`verify_propositions_sympy.py`).
 - `experiments/tests/` — Automated unit and parity tests (`test_box1_parity.py`, `test_counting_engine.py`, `test_extract_audit_features.py`).
-- `experiments/results/` — Anonymized JSON analysis summaries (`layer0_population_balance.json`, `layer1_final_adjudicated_census.json`, `layer1_llm_provisional_census.json`, `layer2_counting_audit_production.json`, `layer2_v1_expanded_benchmark.json`, `layer2_s1_and_rb_diagnostics.json`, `layer2_s2_s3_sensitivity.json`) and the structured verification workbook (`author_verification_pack.xlsx`).
+- `experiments/results/` — Anonymized JSON analysis summaries (`layer0_population_balance.json`, `layer1_final_adjudicated_census.json`, `layer2_counting_audit_production.json`, `layer2_v1_expanded_benchmark.json`, `layer2_s1_and_rb_diagnostics.json`, `layer2_s2_s3_sensitivity.json`, `layer2_granularity_and_coherence_diagnostics.json`) and the structured verification workbook (`author_verification_pack.xlsx`).
 - `requirements.txt` — Verified Python dependency list across all archived modules and scripts.
 - `LICENSE` — MIT License (Copyright (c) 2026 N. Long Ha and S. Huong Do).
 

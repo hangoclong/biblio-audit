@@ -112,83 +112,86 @@
     "n_exact_k_vos_core": 58,
     "n_rev_exact_k_vos_core": 54,
     "n_degenerate_k_vos_core": 0,
+    "kish_ess": 19.62,
+    "kish_ess_pct": 33.3,
+    "max_weight": 33.03,
     "vos_core_delta_count_mid": {
-      "mean": 0.3043,
+      "mean": 0.2993,
       "ci95": [
-        0.2361,
-        0.369
+        0.2487,
+        0.3537
       ],
       "median": 0.2873
     },
     "vos_core_delta_count_reverse": {
-      "mean": 0.2838,
+      "mean": 0.2857,
       "ci95": [
-        0.2142,
-        0.3458
+        0.2384,
+        0.3331
       ],
       "median": 0.2835
     },
     "vos_core_core_reassignment": {
-      "mean": 0.226,
+      "mean": 0.221,
       "ci95": [
-        0.1846,
-        0.2677
+        0.1791,
+        0.2675
       ],
       "median": 0.204
     },
     "vos_core_landmark_top10_retention": {
-      "mean": 0.7857,
+      "mean": 0.7864,
       "ci95": [
-        0.7461,
-        0.8221
+        0.7389,
+        0.8301
       ],
       "median": 0.7904
     },
     "vos_core_ari_cross_mid": {
-      "mean": 0.5925,
+      "mean": 0.6004,
       "ci95": [
-        0.5334,
-        0.6492
+        0.5282,
+        0.6651
       ],
       "median": 0.6066
     },
     "vos_core_ami_within_full": {
-      "mean": 0.9621,
+      "mean": 0.9678,
       "ci95": [
-        0.9438,
-        0.9797
+        0.9534,
+        0.9805
       ],
       "median": 0.9915
     },
     "rb_core_delta_count_mid": {
-      "mean": 0.3604,
+      "mean": 0.3519,
       "ci95": [
-        0.3087,
-        0.4009
+        0.2991,
+        0.4016
       ],
       "median": 0.3161
     },
     "rb_core_core_reassignment": {
-      "mean": 0.2302,
+      "mean": 0.2174,
       "ci95": [
-        0.1911,
-        0.2627
+        0.1788,
+        0.2548
       ],
       "median": 0.1819
     },
     "vos_wide_delta_count_mid": {
-      "mean": 0.3036,
+      "mean": 0.3367,
       "ci95": [
-        0.2647,
-        0.3662
+        0.2715,
+        0.4278
       ],
       "median": 0.2873
     },
     "rb_wide_delta_count_mid": {
-      "mean": 0.3677,
+      "mean": 0.3762,
       "ci95": [
-        0.3293,
-        0.4143
+        0.3228,
+        0.4293
       ],
       "median": 0.3943
     }
@@ -945,7 +948,10 @@
         "true_ref_year_coverage": 0.9871,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.332655,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1057/s41599-025-05884-8",
@@ -1081,7 +1087,10 @@
         "true_ref_year_coverage": 0.9867,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.303394,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.jbusres.2021.03.056",
@@ -1217,7 +1226,10 @@
         "true_ref_year_coverage": 0.9956,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 2.122849,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1108/medar-10-2021-1470",
@@ -1353,7 +1365,10 @@
         "true_ref_year_coverage": 0.9867,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 4.961101,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.jbusres.2024.114502",
@@ -1489,7 +1504,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.844883,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1108/jaar-03-2023-0070",
@@ -1650,7 +1668,10 @@
         "true_ref_year_coverage": 0.975,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 5.726798,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1186/s13731-026-00679-w",
@@ -1786,7 +1807,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.335247,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1007/s11846-024-00741-5",
@@ -1922,7 +1946,10 @@
         "true_ref_year_coverage": 0.98,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.358765,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1007/s11301-024-00456-7",
@@ -2058,7 +2085,10 @@
         "true_ref_year_coverage": 0.98,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.40829,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1186/s13731-025-00612-7",
@@ -2219,7 +2249,10 @@
         "true_ref_year_coverage": 0.9918,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.364257,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.jik.2025.100908",
@@ -2380,7 +2413,10 @@
         "true_ref_year_coverage": 0.9761,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.852769,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.jdec.2023.03.004",
@@ -2541,7 +2577,10 @@
         "true_ref_year_coverage": 0.9803,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.749126,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.apmrv.2024.12.001",
@@ -2702,7 +2741,10 @@
         "true_ref_year_coverage": 0.9824,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.797266,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1007/s11846-025-00895-w",
@@ -2863,7 +2905,10 @@
         "true_ref_year_coverage": 0.9851,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.335601,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.3390/admsci13030075",
@@ -3024,7 +3069,10 @@
         "true_ref_year_coverage": 0.9775,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 5.433631,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.3390/jrfm18110658",
@@ -3185,7 +3233,10 @@
         "true_ref_year_coverage": 0.9813,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 5.433631,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1080/23311975.2024.2422168",
@@ -3196,7 +3247,7 @@
       "publication_name": "Cogent Business and Management",
       "pub_year": 2024,
       "citescore": 7.8,
-      "ipw_weight": 1.754219,
+      "ipw_weight": 3.779717,
       "cutoff_year": 2021,
       "network_type": "co_citation",
       "n_repro_total": 1199,
@@ -3321,7 +3372,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.754219,
+      "stage2_retrieval_ipw": 2.154644,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1108/bij-10-2023-0717",
@@ -3332,7 +3386,7 @@
       "publication_name": "Benchmarking",
       "pub_year": 2025,
       "citescore": 14.0,
-      "ipw_weight": 5.081797,
+      "ipw_weight": 26.028954,
       "cutoff_year": 2023,
       "network_type": "co_citation",
       "n_repro_total": 184,
@@ -3457,7 +3511,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 5.081797,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.3390/admsci15050179",
@@ -3468,7 +3525,7 @@
       "publication_name": "Administrative Sciences",
       "pub_year": 2025,
       "citescore": 7.6,
-      "ipw_weight": 1.111111,
+      "ipw_weight": 6.037367,
       "cutoff_year": 2024,
       "network_type": "co_citation",
       "n_repro_total": 1185,
@@ -3593,7 +3650,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 5.433631,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1108/jec-11-2024-0235",
@@ -3604,7 +3664,7 @@
       "publication_name": "Journal of Enterprising Communities",
       "pub_year": 2026,
       "citescore": 8.2,
-      "ipw_weight": 4.295076,
+      "ipw_weight": 21.999371,
       "cutoff_year": 2023,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 1005,
@@ -3754,7 +3814,10 @@
         "true_ref_year_coverage": 0.9818,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 4.295076,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1002/mar.21864",
@@ -3765,7 +3828,7 @@
       "publication_name": "Psychology and Marketing",
       "pub_year": 2023,
       "citescore": 14.6,
-      "ipw_weight": 1.745622,
+      "ipw_weight": 8.731668,
       "cutoff_year": 2021,
       "network_type": "co_citation",
       "n_repro_total": 976,
@@ -3890,7 +3953,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.745622,
+      "stage2_retrieval_ipw": 5.002038,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1016/j.jfds.2023.100102",
@@ -3901,7 +3967,7 @@
       "publication_name": "Journal of Finance and Data Science",
       "pub_year": 2023,
       "citescore": 5.2,
-      "ipw_weight": 1.595804,
+      "ipw_weight": 2.334069,
       "cutoff_year": 2023,
       "network_type": "co_citation",
       "n_repro_total": 1391,
@@ -4026,7 +4092,10 @@
         "true_ref_year_coverage": 0.98,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.595804,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1016/j.cities.2022.103709",
@@ -4037,7 +4106,7 @@
       "publication_name": "Cities",
       "pub_year": 2022,
       "citescore": 10.0,
-      "ipw_weight": 1.780979,
+      "ipw_weight": 2.604912,
       "cutoff_year": 2020,
       "network_type": "co_citation",
       "n_repro_total": 1165,
@@ -4162,7 +4231,10 @@
         "true_ref_year_coverage": 0.9789,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.780979,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1017/jmo.2025.10079",
@@ -4173,7 +4245,7 @@
       "publication_name": "Journal of Management and Organization",
       "pub_year": 2026,
       "citescore": 6.8,
-      "ipw_weight": 1.111111,
+      "ipw_weight": 2.14347,
       "cutoff_year": 2025,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 6272,
@@ -4323,7 +4395,10 @@
         "true_ref_year_coverage": 0.9899,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 1.929123,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1108/scm-01-2021-0053",
@@ -4334,7 +4409,7 @@
       "publication_name": "Supply Chain Management",
       "pub_year": 2022,
       "citescore": 18.7,
-      "ipw_weight": 6.449268,
+      "ipw_weight": 33.033138,
       "cutoff_year": 2021,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 2140,
@@ -4484,7 +4559,10 @@
         "true_ref_year_coverage": 0.9806,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 6.449268,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1016/j.jclepro.2020.120988",
@@ -4495,7 +4573,7 @@
       "publication_name": "Journal of Cleaner Production",
       "pub_year": 2020,
       "citescore": 20.5,
-      "ipw_weight": 2.260879,
+      "ipw_weight": 3.306827,
       "cutoff_year": 2019,
       "network_type": "co_citation",
       "n_repro_total": 2005,
@@ -4620,7 +4698,10 @@
         "true_ref_year_coverage": 0.9875,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 2.260879,
+      "stage2_retrieval_ipw": 1.462629,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1002/csr.2909",
@@ -4631,7 +4712,7 @@
       "publication_name": "Corporate Social Responsibility and Environmental Management",
       "pub_year": 2024,
       "citescore": 14.6,
-      "ipw_weight": 1.654315,
+      "ipw_weight": 8.274946,
       "cutoff_year": 2023,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 697,
@@ -4781,7 +4862,10 @@
         "true_ref_year_coverage": 0.9915,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.654315,
+      "stage2_retrieval_ipw": 5.002038,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1007/s11301-021-00213-0",
@@ -4792,7 +4876,7 @@
       "publication_name": "Management Review Quarterly",
       "pub_year": 2022,
       "citescore": 19.5,
-      "ipw_weight": 1.473542,
+      "ipw_weight": 2.182856,
       "cutoff_year": 2020,
       "network_type": "co_citation",
       "n_repro_total": 894,
@@ -4917,7 +5001,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.473542,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1007/s12063-022-00328-x",
@@ -4928,7 +5015,7 @@
       "publication_name": "Operations Management Research",
       "pub_year": 2023,
       "citescore": 14.7,
-      "ipw_weight": 1.427086,
+      "ipw_weight": 2.114038,
       "cutoff_year": 2021,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 296,
@@ -5078,7 +5165,10 @@
         "true_ref_year_coverage": 0.9962,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.427086,
+      "stage2_retrieval_ipw": 1.481367,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1111/corg.12632",
@@ -5089,7 +5179,7 @@
       "publication_name": "Corporate Governance an International Review",
       "pub_year": 2025,
       "citescore": 10.8,
-      "ipw_weight": 5.781063,
+      "ipw_weight": 29.610593,
       "cutoff_year": 2021,
       "network_type": "co_citation",
       "n_repro_total": 793,
@@ -5214,7 +5304,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 5.781063,
+      "stage2_retrieval_ipw": 5.121998,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.14596/pisb.5402",
@@ -5375,7 +5468,10 @@
         "true_ref_year_coverage": 0.9745,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.372922,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.5585/remark.v22i4.23979",
@@ -5536,7 +5632,10 @@
         "true_ref_year_coverage": 0.9722,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.552236,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.18421/tem151-26",
@@ -5672,7 +5771,10 @@
         "true_ref_year_coverage": 0.9867,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.342764,
+      "stage2_retrieval_ipw": 2.030253,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1016/j.sftr.2026.101841",
@@ -5833,7 +5935,10 @@
         "true_ref_year_coverage": 0.9788,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.236351,
+      "stage2_retrieval_ipw": 1.43567,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.24840/2183-0606_013.004_0003",
@@ -5969,7 +6074,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.115984,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.55845/vqv5ma96",
@@ -6105,7 +6213,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.392637,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.32479/irmm.17907",
@@ -6266,7 +6377,10 @@
         "true_ref_year_coverage": 0.9878,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.236354,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.47743/saeb-2026-0020",
@@ -6402,7 +6516,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.199705,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.20867/thm.29.3.8",
@@ -6563,7 +6680,10 @@
         "true_ref_year_coverage": 0.9661,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.119099,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.31387/oscm0660537",
@@ -6724,7 +6844,10 @@
         "true_ref_year_coverage": 0.9903,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.1007/s43546-026-01315-1",
@@ -6860,7 +6983,10 @@
         "true_ref_year_coverage": 0.98,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 4.706823,
+      "stage2_retrieval_ipw": 1.429509,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.33893/fer.25.3.49",
@@ -7021,7 +7147,10 @@
         "true_ref_year_coverage": 0.9935,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.428657,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.6018/rcsar.428041",
@@ -7182,7 +7311,10 @@
         "true_ref_year_coverage": 0.9669,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.135999,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.33168/jliss.2026.0514",
@@ -7318,7 +7450,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.202688,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.33168/jliss.2024.0119",
@@ -7479,7 +7614,10 @@
         "true_ref_year_coverage": 0.9877,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.241642,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "layer1"
     },
     {
       "doi": "10.2478/sbe-2024-0040",
@@ -7490,7 +7628,7 @@
       "publication_name": "Studies in Business and Economics",
       "pub_year": 2024,
       "citescore": 2.7,
-      "ipw_weight": 1.111111,
+      "ipw_weight": 2.083311,
       "cutoff_year": 2023,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 1343,
@@ -7640,7 +7778,10 @@
         "true_ref_year_coverage": 0.9747,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.32479/irmm.19843",
@@ -7651,7 +7792,7 @@
       "publication_name": "International Review of Management and Marketing",
       "pub_year": 2025,
       "citescore": 2.0,
-      "ipw_weight": 1.236354,
+      "ipw_weight": 2.261326,
       "cutoff_year": 2024,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 288,
@@ -7801,7 +7942,10 @@
         "true_ref_year_coverage": 0.9802,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.236354,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1142/s1363919620400034",
@@ -7812,7 +7956,7 @@
       "publication_name": "International Journal of Innovation Management",
       "pub_year": 2020,
       "citescore": 2.3,
-      "ipw_weight": 1.335938,
+      "ipw_weight": 2.443468,
       "cutoff_year": 2020,
       "network_type": "co_citation",
       "n_repro_total": 1303,
@@ -7937,7 +8081,10 @@
         "true_ref_year_coverage": 0.98,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.335938,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1016/j.sftr.2025.101290",
@@ -7948,7 +8095,7 @@
       "publication_name": "Sustainable Futures",
       "pub_year": 2025,
       "citescore": 6.0,
-      "ipw_weight": 1.227303,
+      "ipw_weight": 1.762002,
       "cutoff_year": 2024,
       "network_type": "co_citation",
       "n_repro_total": 3180,
@@ -8073,7 +8220,10 @@
         "true_ref_year_coverage": 0.9667,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.227303,
+      "stage2_retrieval_ipw": 1.43567,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.30892/gtg.68428-1909",
@@ -8084,7 +8234,7 @@
       "publication_name": "Geojournal of Tourism and Geosites",
       "pub_year": 2026,
       "citescore": 3.7,
-      "ipw_weight": 1.111111,
+      "ipw_weight": 2.083311,
       "cutoff_year": 2025,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 238,
@@ -8234,7 +8384,10 @@
         "true_ref_year_coverage": 0.9599,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.18421/tem143-70",
@@ -8245,7 +8398,7 @@
       "publication_name": "TEM Journal",
       "pub_year": 2025,
       "citescore": 2.6,
-      "ipw_weight": 1.338568,
+      "ipw_weight": 2.717632,
       "cutoff_year": 2024,
       "network_type": "co_citation",
       "n_repro_total": 947,
@@ -8370,7 +8523,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.338568,
+      "stage2_retrieval_ipw": 2.030253,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.31387/oscm0500351",
@@ -8381,7 +8537,7 @@
       "publication_name": "Operations and Supply Chain Management",
       "pub_year": 2022,
       "citescore": 3.9,
-      "ipw_weight": 1.14116,
+      "ipw_weight": 2.139652,
       "cutoff_year": 2021,
       "network_type": "co_citation",
       "n_repro_total": 840,
@@ -8506,7 +8662,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.14116,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.14419/k0vmt008",
@@ -8517,7 +8676,7 @@
       "publication_name": "International Journal of Accounting and Economics Studies",
       "pub_year": 2025,
       "citescore": 0.6,
-      "ipw_weight": 1.400231,
+      "ipw_weight": 2.264699,
       "cutoff_year": 2025,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 144,
@@ -8667,7 +8826,10 @@
         "true_ref_year_coverage": 0.9905,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.400231,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1007/s12208-026-00473-0",
@@ -8678,7 +8840,7 @@
       "publication_name": "International Review on Public and Nonprofit Marketing",
       "pub_year": 2026,
       "citescore": 5.6,
-      "ipw_weight": 2.768539,
+      "ipw_weight": 4.023562,
       "cutoff_year": 2025,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 255,
@@ -8828,7 +8990,10 @@
         "true_ref_year_coverage": 0.988,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 2.768539,
+      "stage2_retrieval_ipw": 1.453316,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.33168/jliss.2024.0703",
@@ -8839,7 +9004,7 @@
       "publication_name": "Journal of Logistics Informatics and Service Science",
       "pub_year": 2024,
       "citescore": 2.0,
-      "ipw_weight": 1.241642,
+      "ipw_weight": 2.270998,
       "cutoff_year": 2023,
       "network_type": "co_citation",
       "n_repro_total": 914,
@@ -8964,7 +9129,10 @@
         "true_ref_year_coverage": 1.0,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.241642,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.14707/ajbr.220128",
@@ -8975,7 +9143,7 @@
       "publication_name": "Asian Journal of Business Research",
       "pub_year": 2022,
       "citescore": 2.2,
-      "ipw_weight": 1.385502,
+      "ipw_weight": 2.534122,
       "cutoff_year": 2021,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 1534,
@@ -9125,7 +9293,10 @@
         "true_ref_year_coverage": 0.9757,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.385502,
+      "stage2_retrieval_ipw": 1.829028,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.25046/aj050561",
@@ -9136,7 +9307,7 @@
       "publication_name": "Advances in Science Technology and Engineering Systems",
       "pub_year": 2020,
       "citescore": 0.6,
-      "ipw_weight": 1.756589,
+      "ipw_weight": 2.841063,
       "cutoff_year": 2020,
       "network_type": "co_citation",
       "n_repro_total": 851,
@@ -9261,7 +9432,10 @@
         "true_ref_year_coverage": 0.9933,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.756589,
+      "stage2_retrieval_ipw": 1.617375,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.1057/s41272-022-00414-6",
@@ -9272,7 +9446,7 @@
       "publication_name": "Journal of Revenue and Pricing Management",
       "pub_year": 2023,
       "citescore": 3.2,
-      "ipw_weight": 2.692742,
+      "ipw_weight": 3.913405,
       "cutoff_year": 2022,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 126,
@@ -9422,7 +9596,10 @@
         "true_ref_year_coverage": 0.9787,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 2.692742,
+      "stage2_retrieval_ipw": 1.453316,
+      "l2_pool_origin": "continuation"
     },
     {
       "doi": "10.31387/oscm0650518",
@@ -9433,7 +9610,7 @@
       "publication_name": "Operations and Supply Chain Management",
       "pub_year": 2026,
       "citescore": 3.9,
-      "ipw_weight": 1.111111,
+      "ipw_weight": 2.083311,
       "cutoff_year": 2022,
       "network_type": "bibliographic_coupling",
       "n_repro_total": 675,
@@ -9583,7 +9760,192 @@
         "true_ref_year_coverage": 0.9878,
         "passes_temporal_null_rb": 1.0,
         "passes_temporal_null_vos": 1.0
-      }
+      },
+      "ipw_weight_stage1_oa": 1.111111,
+      "stage2_retrieval_ipw": 1.87498,
+      "l2_pool_origin": "continuation"
     }
-  ]
+  ],
+  "ht4_ipw_trimmed10_nondegenerate": {
+    "n": 59,
+    "n_journals": 47,
+    "collapsed_q3_q4_for_var": false,
+    "n_exact_k_vos_core": 58,
+    "n_rev_exact_k_vos_core": 54,
+    "n_degenerate_k_vos_core": 0,
+    "kish_ess": 38.96,
+    "kish_ess_pct": 66.0,
+    "max_weight": 10.0,
+    "vos_core_delta_count_mid": {
+      "mean": 0.3116,
+      "ci95": [
+        0.2657,
+        0.3605
+      ],
+      "median": 0.2873
+    },
+    "vos_core_delta_count_reverse": {
+      "mean": 0.2928,
+      "ci95": [
+        0.2508,
+        0.3337
+      ],
+      "median": 0.2835
+    },
+    "vos_core_core_reassignment": {
+      "mean": 0.2274,
+      "ci95": [
+        0.1874,
+        0.2695
+      ],
+      "median": 0.204
+    },
+    "vos_core_landmark_top10_retention": {
+      "mean": 0.7767,
+      "ci95": [
+        0.7343,
+        0.8175
+      ],
+      "median": 0.7904
+    },
+    "vos_core_ari_cross_mid": {
+      "mean": 0.593,
+      "ci95": [
+        0.5318,
+        0.6509
+      ],
+      "median": 0.6066
+    },
+    "vos_core_ami_within_full": {
+      "mean": 0.9658,
+      "ci95": [
+        0.9523,
+        0.9776
+      ],
+      "median": 0.9915
+    },
+    "rb_core_delta_count_mid": {
+      "mean": 0.3414,
+      "ci95": [
+        0.2932,
+        0.3887
+      ],
+      "median": 0.3161
+    },
+    "rb_core_core_reassignment": {
+      "mean": 0.2159,
+      "ci95": [
+        0.1808,
+        0.2536
+      ],
+      "median": 0.1819
+    },
+    "vos_wide_delta_count_mid": {
+      "mean": 0.332,
+      "ci95": [
+        0.2858,
+        0.3914
+      ],
+      "median": 0.2873
+    },
+    "rb_wide_delta_count_mid": {
+      "mean": 0.3727,
+      "ci95": [
+        0.3311,
+        0.4136
+      ],
+      "median": 0.3943
+    }
+  },
+  "ht4_ipw_stage1_oa_nondegenerate": {
+    "n": 59,
+    "n_journals": 47,
+    "collapsed_q3_q4_for_var": false,
+    "n_exact_k_vos_core": 58,
+    "n_rev_exact_k_vos_core": 54,
+    "n_degenerate_k_vos_core": 0,
+    "kish_ess": 40.09,
+    "kish_ess_pct": 67.9,
+    "max_weight": 6.45,
+    "vos_core_delta_count_mid": {
+      "mean": 0.3033,
+      "ci95": [
+        0.2584,
+        0.3507
+      ],
+      "median": 0.2873
+    },
+    "vos_core_delta_count_reverse": {
+      "mean": 0.2858,
+      "ci95": [
+        0.2475,
+        0.3251
+      ],
+      "median": 0.2835
+    },
+    "vos_core_core_reassignment": {
+      "mean": 0.2188,
+      "ci95": [
+        0.1817,
+        0.2579
+      ],
+      "median": 0.204
+    },
+    "vos_core_landmark_top10_retention": {
+      "mean": 0.7854,
+      "ci95": [
+        0.7462,
+        0.8225
+      ],
+      "median": 0.7904
+    },
+    "vos_core_ari_cross_mid": {
+      "mean": 0.6022,
+      "ci95": [
+        0.5407,
+        0.6563
+      ],
+      "median": 0.6066
+    },
+    "vos_core_ami_within_full": {
+      "mean": 0.9674,
+      "ci95": [
+        0.9541,
+        0.9787
+      ],
+      "median": 0.9915
+    },
+    "rb_core_delta_count_mid": {
+      "mean": 0.3361,
+      "ci95": [
+        0.2906,
+        0.3834
+      ],
+      "median": 0.3161
+    },
+    "rb_core_core_reassignment": {
+      "mean": 0.215,
+      "ci95": [
+        0.18,
+        0.2511
+      ],
+      "median": 0.1819
+    },
+    "vos_wide_delta_count_mid": {
+      "mean": 0.3326,
+      "ci95": [
+        0.2796,
+        0.4001
+      ],
+      "median": 0.2873
+    },
+    "rb_wide_delta_count_mid": {
+      "mean": 0.3779,
+      "ci95": [
+        0.3347,
+        0.4195
+      ],
+      "median": 0.3943
+    }
+  }
 }
