@@ -510,7 +510,7 @@ def main() -> None:
 
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     bal_path = RES_DIR / "layer0_population_balance.json"
-    q4_weights = {"Q1": 0.5093, "Q2": 0.2113, "Q3": 0.1960, "Q4": 0.0835}
+    q4_weights = {"Q1": 0.5093, "Q2": 0.2113, "Q3": 0.1960, "Q4": 0.0834}
     if bal_path.exists():
         bal = json.loads(bal_path.read_text(encoding="utf-8"))
         q4_weights = {q: float(bal["strata"][q]["weight_Wh"]) for q in ("Q1", "Q2", "Q3", "Q4")}

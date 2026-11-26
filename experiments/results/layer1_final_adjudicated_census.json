@@ -2,7 +2,16 @@
   "schema_version": "1.2",
   "n_adjudicated_empirical": 246,
   "n_qa50_verified": 50,
-  "n_excel_rows_applied": 165,
+  "n_excel_rows_applied": 16,
+  "kish_ess": {
+    "cap_ht": 201.42,
+    "cap_ht_pct": 81.9,
+    "ipw2_untrimmed": 92.45,
+    "ipw2_untrimmed_pct": 37.6,
+    "ipw2_untrimmed_max_weight": 31.51,
+    "ipw2_trimmed10": 176.6,
+    "ipw2_trimmed10_pct": 71.8
+  },
   "ht_capped_clustered": {
     "uses_scopus": {
       "rate": 0.6767,
@@ -175,6 +184,91 @@
         0.0073,
         0.0436
       ]
+    }
+  },
+  "ht_two_stage_ipw_trimmed10": {
+    "uses_scopus": {
+      "rate": 0.6675,
+      "se": 0.0341,
+      "ci95": [
+        0.5996,
+        0.7346
+      ],
+      "rate_exact": 0.667549
+    },
+    "uses_wos": {
+      "rate": 0.464,
+      "se": 0.0385,
+      "ci95": [
+        0.3931,
+        0.5444
+      ],
+      "rate_exact": 0.463955
+    },
+    "exact_query_printed": {
+      "rate": 0.6385,
+      "se": 0.0333,
+      "ci95": [
+        0.5718,
+        0.7016
+      ],
+      "rate_exact": 0.638517
+    },
+    "network_fractional_disclosed": {
+      "rate": 0.0274,
+      "se": 0.01,
+      "ci95": [
+        0.0106,
+        0.0485
+      ],
+      "rate_exact": 0.027355
+    },
+    "null_model_reported": {
+      "rate": 0.0,
+      "se": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "rate_exact": 0.0
+    },
+    "stability_check_reported": {
+      "rate": 0.0088,
+      "se": 0.0056,
+      "ci95": [
+        0.0,
+        0.0224
+      ],
+      "rate_exact": 0.008815
+    },
+    "data_or_code_shared": {
+      "rate": 0.029,
+      "se": 0.011,
+      "ci95": [
+        0.0094,
+        0.0523
+      ],
+      "rate_exact": 0.029003
+    }
+  },
+  "extra_metrics_ht_trimmed10": {
+    "sw_vosviewer": {
+      "rate": 0.7209,
+      "se": 0.0371,
+      "ci95": [
+        0.6448,
+        0.7893
+      ],
+      "rate_exact": 0.720875
+    },
+    "sw_bibliometrix": {
+      "rate": 0.4245,
+      "se": 0.0389,
+      "ci95": [
+        0.3467,
+        0.5018
+      ],
+      "rate_exact": 0.424486
     }
   }
 }

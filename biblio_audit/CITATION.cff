@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "biblio-audit: VOSviewer-Parity Counting Sensitivity and Clustering Stability Auditor"
 message: "If you use biblio-audit in academic work, please cite this software and its accompanying methodology paper."
 type: software
-version: "1.0.0"
+version: "1.0.2"
 doi: "10.5281/zenodo.24492268"
 license: MIT
 authors:

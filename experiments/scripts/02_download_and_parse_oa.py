@@ -132,7 +132,7 @@ def try_download_pdf(url: str, dest: Path) -> tuple[bool, int | str]:
     try:
         resp = requests.get(
             url,
-            headers={"User-Agent": "AcademicResearchAudit/1.2 (mailto:longhn@uel.edu.vn)"},
+            headers={"User-Agent": "AcademicResearchAudit/1.2 (mailto:hnlong@hueuni.edu.vn)"},
             timeout=25,
             allow_redirects=True,
         )

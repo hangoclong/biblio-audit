@@ -165,6 +165,7 @@ def main() -> None:
             "publisher_group": r.get("publisher_group", "Other"),
             "cap_ht_weight": float(r.get("cap_ht_weight") or 1.0),
             "two_stage_ipw_weight": float(r.get("two_stage_ipw_weight") or r.get("ipw_weight") or 1.0),
+            "two_stage_ipw_weight_trimmed10": min(float(r.get("two_stage_ipw_weight") or r.get("ipw_weight") or 1.0), 10.0),
             "primary_citation_network": str(llm.get("primary_citation_network") or "none").strip().lower(),
             "primary_database": str(llm.get("primary_database") or "none").strip().lower(),
             "author_pub_fractionalized": bool(llm.get("author_pub_fractionalized")),
@@ -187,10 +188,11 @@ def main() -> None:
             row[f"regex_{l_key}"] = bool(r.get(r_key))
         flat.append(row)
 
-    # 3 estimators on all 7 primary reporting fields + author_pub_fractionalized + software
+    # 4 estimators on all 7 primary reporting fields + author_pub_fractionalized + software
     ht_capped: dict[str, Any] = {}
     ht_cap_adj: dict[str, Any] = {}
     ht_ipw2: dict[str, Any] = {}
+    ht_ipw2_trim10: dict[str, Any] = {}
     regex_ht_capped: dict[str, Any] = {}
     by_quartile: dict[str, dict[str, Any]] = {q: {} for q in ("Q1", "Q2", "Q3", "Q4", "Q2_Q4")}
     q1_vs_q24: dict[str, Any] = {}
@@ -204,10 +206,24 @@ def main() -> None:
         "Q2_Q4": [r for r in flat if r["quartile"] != "Q1"],
     }
 
+    def _exact_ht_rate(rows: list[dict[str, Any]], metric: str, w_field: str | None) -> float:
+        tot = 0.0
+        for q_name in ("Q1", "Q2", "Q3", "Q4"):
+            sub_q = [r for r in rows if r["quartile"] == q_name]
+            ys_q = np.array([1.0 if r.get(metric) else 0.0 for r in sub_q], dtype=float)
+            if w_field is None:
+                tot += wh[q_name] * float(np.mean(ys_q))
+            else:
+                ws_q = np.array([float(r[w_field]) for r in sub_q], dtype=float)
+                tot += wh[q_name] * float(np.sum(ws_q * ys_q) / np.sum(ws_q))
+        return round(tot, 6)
+
     for idx, (l_key, _, lbl) in enumerate(FIELDS):
         ht_capped[l_key] = mod02.journal_clustered_ht_bootstrap_prop(flat, l_key, wh, weight_field=None, seed=MASTER_SEED + 1100 + idx)
         ht_cap_adj[l_key] = mod02.journal_clustered_ht_bootstrap_prop(flat, l_key, wh, weight_field="cap_ht_weight", seed=MASTER_SEED + 1200 + idx)
         ht_ipw2[l_key] = mod02.journal_clustered_ht_bootstrap_prop(flat, l_key, wh, weight_field="two_stage_ipw_weight", seed=MASTER_SEED + 1300 + idx)
+        ht_ipw2_trim10[l_key] = mod02.journal_clustered_ht_bootstrap_prop(flat, l_key, wh, weight_field="two_stage_ipw_weight_trimmed10", seed=MASTER_SEED + 1300 + idx)
+        ht_ipw2_trim10[l_key]["rate_exact"] = _exact_ht_rate(flat, l_key, "two_stage_ipw_weight_trimmed10")
         regex_ht_capped[l_key] = mod02.journal_clustered_ht_bootstrap_prop(flat, f"regex_{l_key}", wh, weight_field=None, seed=MASTER_SEED + 1400 + idx)
 
         for qname, sub in q_groups.items():
@@ -242,12 +258,29 @@ def main() -> None:
         "prisma_reported",
         "snapshot_date_reported",
     ]):
+        t10_res = mod02.journal_clustered_ht_bootstrap_prop(flat, field, wh, weight_field="two_stage_ipw_weight_trimmed10", seed=MASTER_SEED + 1900 + idx)
+        t10_res["rate_exact"] = _exact_ht_rate(flat, field, "two_stage_ipw_weight_trimmed10")
         extra_ht[field] = {
             "n_pos": sum(1 for r in flat if r[field]),
             "ht_capped": mod02.journal_clustered_ht_bootstrap_prop(flat, field, wh, weight_field=None, seed=MASTER_SEED + 1700 + idx),
             "ht_cap_adj": mod02.journal_clustered_ht_bootstrap_prop(flat, field, wh, weight_field="cap_ht_weight", seed=MASTER_SEED + 1800 + idx),
             "ht_ipw2": mod02.journal_clustered_ht_bootstrap_prop(flat, field, wh, weight_field="two_stage_ipw_weight", seed=MASTER_SEED + 1900 + idx),
+            "ht_ipw2_trimmed10": t10_res,
         }
+
+    # Kish effective sample sizes for cap-adjusted and Two-Stage IPW weights
+    w_cap = np.array([r["cap_ht_weight"] for r in flat], dtype=float)
+    w_ipw_raw = np.array([r["two_stage_ipw_weight"] for r in flat], dtype=float)
+    w_ipw_t10 = np.array([r["two_stage_ipw_weight_trimmed10"] for r in flat], dtype=float)
+    kish_ess = {
+        "cap_ht": round(float((np.sum(w_cap) ** 2) / np.sum(w_cap ** 2)), 2),
+        "cap_ht_pct": round(100.0 * float((np.sum(w_cap) ** 2) / np.sum(w_cap ** 2)) / max(1, len(flat)), 1),
+        "ipw2_untrimmed": round(float((np.sum(w_ipw_raw) ** 2) / np.sum(w_ipw_raw ** 2)), 2),
+        "ipw2_untrimmed_pct": round(100.0 * float((np.sum(w_ipw_raw) ** 2) / np.sum(w_ipw_raw ** 2)) / max(1, len(flat)), 1),
+        "ipw2_untrimmed_max_weight": round(float(np.max(w_ipw_raw)), 2),
+        "ipw2_trimmed10": round(float((np.sum(w_ipw_t10) ** 2) / np.sum(w_ipw_t10 ** 2)), 2),
+        "ipw2_trimmed10_pct": round(100.0 * float((np.sum(w_ipw_t10) ** 2) / np.sum(w_ipw_t10 ** 2)) / max(1, len(flat)), 1),
+    }
 
     net_counts = Counter(r["primary_citation_network"] for r in flat)
     db_counts = Counter(r["primary_database"] for r in flat)
@@ -281,9 +314,11 @@ def main() -> None:
             "by_quartile_sample": q_counts,
             "q1_publisher_counts": dict(pub_counts_q1.most_common()),
         },
+        "kish_ess": kish_ess,
         "ht_capped_clustered": ht_capped,
         "ht_article_weighted_cap_adjusted": ht_cap_adj,
         "ht_two_stage_ipw_sensitivity": ht_ipw2,
+        "ht_two_stage_ipw_trimmed10": ht_ipw2_trim10,
         "regex_ht_capped_comparison": regex_ht_capped,
         "by_quartile": by_quartile,
         "q1_vs_q24_clustered_tests": q1_vs_q24,
@@ -295,7 +330,29 @@ def main() -> None:
 
     out_path = RES_DIR / "layer1_final_adjudicated_census.json"
     out_path.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    LOGGER.info("Saved adjudicated Layer-1 census (n=%d, %d journals) to %s", len(flat), out["corpus_funnel"]["layer1_unique_journals"], out_path)
+
+    # Synchronize final adjudicated summary JSON with exact byte parity on all 4 estimators
+    final_path = RES_DIR / "layer1_final_adjudicated_census.json"
+    final_out = {
+        "schema_version": "1.2",
+        "n_adjudicated_empirical": len(flat),
+        "n_qa50_verified": 50,
+        "n_excel_rows_applied": len(excel_overrides),
+        "kish_ess": kish_ess,
+        "ht_capped_clustered": ht_capped,
+        "ht_article_weighted_cap_adjusted": ht_cap_adj,
+        "ht_two_stage_ipw_sensitivity": ht_ipw2,
+        "ht_two_stage_ipw_trimmed10": ht_ipw2_trim10,
+        "extra_metrics_ht_trimmed10": {
+            "sw_vosviewer": extra_ht["sw_vosviewer"]["ht_ipw2_trimmed10"],
+            "sw_bibliometrix": extra_ht["sw_bibliometrix"]["ht_ipw2_trimmed10"],
+        },
+    }
+    final_path.write_text(json.dumps(final_out, indent=2), encoding="utf-8")
+    LOGGER.info(
+        "Saved adjudicated Layer-1 census (n=%d, %d journals, IPW trim10 ESS=%.2f) to %s & %s",
+        len(flat), out["corpus_funnel"]["layer1_unique_journals"], kish_ess["ipw2_trimmed10"], out_path, final_path,
+    )
     for k, _, lbl in FIELDS:
         c = ht_capped[k]
         m = ht_cap_adj[k]

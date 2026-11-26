@@ -54,7 +54,12 @@ from biblio_audit.engine import (  # noqa: E402
     edges_to_igraph,
     extract_shared_lcc_edges,
 )
-from biblio_audit.metrics import hungarian_core_match, select_medoid_partition  # noqa: E402
+from biblio_audit.metrics import (  # noqa: E402
+    adjusted_element_centric_similarity,
+    hungarian_core_match,
+    select_medoid_partition,
+    variation_of_information,
+)
 from biblio_audit.networks import build_network_artifact  # noqa: E402
 from counting_engine import temporal_bipartite_rewire  # noqa: E402
 
@@ -78,6 +83,107 @@ def _mean_within_ami(parts: list[list[int]]) -> float:
     if n < 2:
         return 1.0
     return float(np.mean([ami(parts[i], parts[j]) for i in range(n) for j in range(i + 1, n)]))
+
+
+def _mean_within_aecs(parts: list[list[int]]) -> float:
+    n = len(parts)
+    if n < 2:
+        return 1.0
+    return float(np.mean([adjusted_element_centric_similarity(parts[i], parts[j]) for i in range(n) for j in range(i + 1, n)]))
+
+
+def _find_direct_g_matched_gamma(
+    sr: Any,
+    target_g: float,
+    grid: np.ndarray,
+    n_starts: int = 10,
+    min_cluster_size: int = 5,
+) -> float:
+    """Locate gamma_G* minimizing |log(G_frac(gamma) / G_full(1.0))| directly on sr (preferring K >= 2)."""
+    def _probe(gammas: np.ndarray) -> list[tuple[float, float, int, float]]:
+        out: list[tuple[float, float, int, float]] = []
+        for g_val in gammas:
+            parts, _ = _run_seeds(sr, "CPM", float(g_val), 1, n_starts, True, min_cluster_size, False)
+            m = parts[0]
+            k_maj = _major_cluster_stats(m, min_cluster_size)[0]
+            g_eff = _effective_granularity(m)
+            err = abs(math.log(max(g_eff, 1e-12) / max(target_g, 1e-12)))
+            out.append((float(g_val), err, int(k_maj), float(g_eff)))
+        return out
+
+    def _pick(rows: list[tuple[float, float, int, float]]) -> int:
+        nondeg_idxs = [i for i, r in enumerate(rows) if r[2] >= 2]
+        pool = nondeg_idxs if nondeg_idxs else list(range(len(rows)))
+        return min(pool, key=lambda i: (round(rows[i][1], 9), abs(rows[i][0] - 1.0)))
+
+    coarse = _probe(grid)
+    best_idx = _pick(coarse)
+    # 1-step boundary expansion if minimizer lies at an endpoint
+    if best_idx == 0:
+        ext = np.geomspace(float(grid[0]) * 0.1, float(grid[0]), 25)[:-1]
+        coarse = _probe(ext) + coarse
+        best_idx = _pick(coarse)
+    elif best_idx == len(coarse) - 1:
+        ext = np.geomspace(float(grid[-1]), float(grid[-1]) * 10.0, 25)[1:]
+        coarse = coarse + _probe(ext)
+        best_idx = _pick(coarse)
+
+    lo_g = coarse[max(0, best_idx - 1)][0]
+    hi_g = coarse[min(len(coarse) - 1, best_idx + 1)][0]
+    if hi_g > lo_g:
+        fine = _probe(np.geomspace(lo_g, hi_g, 30))
+        all_rows = coarse + fine
+        return float(all_rows[_pick(all_rows)][0])
+    return float(coarse[best_idx][0])
+
+
+def _eval_direct_g_matched_one(task: tuple[int, dict[str, Any], int, int]) -> tuple[int, dict[str, Any]]:
+    """Fast worker evaluating direct G-matched gamma_G* on VOS_AS_CPM (min_cluster_size=5) for one corpus."""
+    idx, item, n_seeds, n_starts = task
+    raw = json.loads((RAW_CORP_DIR / item["corpus_file"]).read_text(encoding="utf-8"))
+    works = raw["works"] if isinstance(raw, dict) and "works" in raw else raw
+    net_type = item.get("network_type", "bibliographic_coupling")
+    core_n = int(item.get("core_top_n") or 150)
+
+    art = build_network_artifact(works, network_type=net_type, core_top_n=core_n, denom_scope="selected-core", frac_scheme="vosviewer")
+    lcc_idx, f_sub, r_sub = extract_shared_lcc_edges(len(art.node_records), art.full_edges, art.frac_edges)
+    sf = edges_to_igraph(len(lcc_idx), f_sub, normalization="association_strength")
+    sr = edges_to_igraph(len(lcc_idx), r_sub, normalization="association_strength")
+    grid = np.geomspace(0.05, 5.0, 60)
+
+    f_parts, _ = _run_seeds(sf, "CPM", 1.0, n_seeds, n_starts, True, 5, False)
+    g_full = float(np.median([_effective_granularity(m) for m in f_parts]))
+    gamma_g = _find_direct_g_matched_gamma(sr, g_full, grid, n_starts=n_starts, min_cluster_size=5)
+    r_g, _ = _run_seeds(sr, "CPM", gamma_g, n_seeds, n_starts, True, 5, False)
+
+    k_g = int(round(float(np.median([_major_cluster_stats(m, 5)[0] for m in r_g]))))
+    g_frac = float(np.median([_effective_granularity(m) for m in r_g]))
+    g_ratio = g_frac / max(g_full, 1e-12)
+
+    wf = _mean_within_ami(f_parts)
+    wr = _mean_within_ami(r_g)
+    cx = float(np.mean([ami(f_parts[i], r_g[j]) for i in range(n_seeds) for j in range(n_seeds)]))
+    delta_g = min(wf, wr) - cx
+    reass_g = 1.0 - float(np.mean([hungarian_core_match(f_parts[i], r_g[j])[0] for i in range(n_seeds) for j in range(n_seeds)]))
+
+    wf_aecs = _mean_within_aecs(f_parts)
+    wr_aecs = _mean_within_aecs(r_g)
+    cx_aecs = float(np.mean([adjusted_element_centric_similarity(f_parts[i], r_g[j]) for i in range(n_seeds) for j in range(n_seeds)]))
+    delta_aecs_g = min(wf_aecs, wr_aecs) - cx_aecs
+    nvi_g = float(np.mean([variation_of_information(f_parts[i], r_g[j])[1] for i in range(n_seeds) for j in range(n_seeds)]))
+
+    return idx, {
+        "doi": item["doi"],
+        "gamma_direct_g_matched": round(float(gamma_g), 4),
+        "k_frac_direct_g_matched": k_g,
+        "g_frac_direct_g_matched": round(g_frac, 5),
+        "g_ratio_direct_g_matched": round(g_ratio, 4),
+        "abs_log_g_ratio_direct_g_matched": round(abs(math.log(max(g_ratio, 1e-12))), 4),
+        "delta_count_direct_g_matched": round(float(delta_g), 4),
+        "reass_direct_g_matched": round(float(reass_g), 4),
+        "delta_aecs_direct_g_matched": round(float(delta_aecs_g), 4),
+        "nvi_direct_g_matched": round(float(nvi_g), 4),
+    }
 
 
 def _title_tfidf_coherence(membership: list[int], node_records: list[dict[str, Any]]) -> dict[str, float] | None:
@@ -277,6 +383,22 @@ def _eval_one(task: tuple[int, dict[str, Any], float, int, int, int]) -> tuple[i
     g_ratio_5 = g_frac_5_mat / max(g_full_5, 1e-12)
     g_ratio_5_fix = g_frac_5_fix / max(g_full_5, 1e-12)
 
+    # --- A2. Full-sample direct effective-granularity (G-matched) gamma_G* sensitivity ---
+    gamma_g = _find_direct_g_matched_gamma(sr, g_full_5, grid, n_starts=n_starts, min_cluster_size=5)
+    r_g, _ = _run_seeds(sr, "CPM", gamma_g, n_seeds, n_starts, True, 5, False)
+    k_frac_g = int(round(float(np.median([_major_cluster_stats(m, 5)[0] for m in r_g]))))
+    g_frac_g = float(np.median([_effective_granularity(m) for m in r_g]))
+    g_ratio_g = g_frac_g / max(g_full_5, 1e-12)
+    wr_g = _mean_within_ami(r_g)
+    cx_g = float(np.mean([ami(f_parts[i], r_g[j]) for i in range(n_seeds) for j in range(n_seeds)]))
+    delta_g = min(wf, wr_g) - cx_g
+    reass_g = 1.0 - float(np.mean([hungarian_core_match(f_parts[i], r_g[j])[0] for i in range(n_seeds) for j in range(n_seeds)]))
+    wf_aecs = _mean_within_aecs(f_parts)
+    wr_g_aecs = _mean_within_aecs(r_g)
+    cx_g_aecs = float(np.mean([adjusted_element_centric_similarity(f_parts[i], r_g[j]) for i in range(n_seeds) for j in range(n_seeds)]))
+    delta_aecs_g = min(wf_aecs, wr_g_aecs) - cx_g_aecs
+    nvi_g = float(np.mean([variation_of_information(f_parts[i], r_g[j])[1] for i in range(n_seeds) for j in range(n_seeds)]))
+
     # --- B. Unmerged min_cluster_size=1 effective granularity ---
     f_unm, _ = _run_seeds(sf, "CPM", 1.0, n_seeds, n_starts, False, 1, False)
     k_full_unm = int(round(float(np.median([_major_cluster_stats(m, 1)[0] for m in f_unm]))))
@@ -322,6 +444,15 @@ def _eval_one(task: tuple[int, dict[str, Any], float, int, int, int]) -> tuple[i
         "g_ratio_matched_mcs5": round(g_ratio_5, 4),
         "g_ratio_fixed_mcs5": round(g_ratio_5_fix, 4),
         "abs_log_g_ratio_mcs5": round(abs(math.log(max(g_ratio_5, 1e-12))), 4),
+        "gamma_direct_g_matched": round(float(gamma_g), 4),
+        "k_frac_direct_g_matched": k_frac_g,
+        "g_frac_direct_g_matched": round(g_frac_g, 5),
+        "g_ratio_direct_g_matched": round(g_ratio_g, 4),
+        "abs_log_g_ratio_direct_g_matched": round(abs(math.log(max(g_ratio_g, 1e-12))), 4),
+        "delta_count_direct_g_matched": round(float(delta_g), 4),
+        "reass_direct_g_matched": round(float(reass_g), 4),
+        "delta_aecs_direct_g_matched": round(float(delta_aecs_g), 4),
+        "nvi_direct_g_matched": round(float(nvi_g), 4),
         "k_full_mcs1": k_full_unm,
         "delta_count_mcs1": round(float(delta_unm), 4),
         "g_ratio_matched_mcs1": round(g_ratio_1, 4),
@@ -339,17 +470,97 @@ def main() -> None:
     ap.add_argument("--n-starts", type=int, default=10)
     ap.add_argument("--n-rewires", type=int, default=100)
     ap.add_argument("--workers", type=int, default=max(1, min(10, (os.cpu_count() or 4) - 2)))
+    ap.add_argument("--only-g-matched", action="store_true", help="Compute direct G-matched gamma_G* block and merge into existing JSON")
     args = ap.parse_args()
 
     t0 = time.time()
     mod04 = import_module("04_run_counting_audit")
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     l0 = json.loads((RES_DIR / "layer0_population_balance.json").read_text(encoding="utf-8"))
+    q4_w = {q: float(l0["strata"][q]["weight_Wh"]) for q in ("Q1", "Q2", "Q3", "Q4")}
+
+    def _summarize_direct_g(rows: list[dict[str, Any]]) -> dict[str, Any]:
+        jks_l = [r["journal_key"] for r in rows]
+        qs_l = [r["quartile"] for r in rows]
+        gr_g = np.array([r["g_ratio_direct_g_matched"] for r in rows], dtype=float)
+        d_g_ht4 = mod04.stratified_journal_cluster_bootstrap_ci(
+            np.array([r["delta_count_direct_g_matched"] for r in rows], dtype=float), jks_l, qs_l, q4_w, enforce_min_stratum_journals=True
+        )
+        r_g_ht4 = mod04.stratified_journal_cluster_bootstrap_ci(
+            np.array([r["reass_direct_g_matched"] for r in rows], dtype=float), jks_l, qs_l, q4_w, enforce_min_stratum_journals=True
+        )
+        a_g_ht4 = mod04.stratified_journal_cluster_bootstrap_ci(
+            np.array([r["delta_aecs_direct_g_matched"] for r in rows], dtype=float), jks_l, qs_l, q4_w, enforce_min_stratum_journals=True
+        )
+        nvi_g_ht4 = mod04.stratified_journal_cluster_bootstrap_ci(
+            np.array([r["nvi_direct_g_matched"] for r in rows], dtype=float), jks_l, qs_l, q4_w, enforce_min_stratum_journals=True
+        )
+        sp_dg = mod04.journal_clustered_spearman_test(
+            np.array([r["abs_log_g_ratio_direct_g_matched"] for r in rows], dtype=float),
+            np.array([r["delta_count_direct_g_matched"] for r in rows], dtype=float),
+            jks_l,
+            seed=MASTER_SEED + 310,
+        )
+        n_within_5 = int(np.sum((gr_g >= 0.95) & (gr_g <= 1.05)))
+        n_within_10 = int(np.sum((gr_g >= 0.90) & (gr_g <= 1.10)))
+        n_k_exact_g = int(np.sum([r["k_frac_direct_g_matched"] == r["k_full_g1"] for r in rows]))
+        return {
+            "n": len(rows),
+            "n_journals": len(set(jks_l)),
+            "g_ratio_median": round(float(np.median(gr_g)), 3),
+            "g_ratio_iqr": [round(float(np.percentile(gr_g, 25)), 3), round(float(np.percentile(gr_g, 75)), 3)],
+            "g_ratio_range": [round(float(np.min(gr_g)), 3), round(float(np.max(gr_g)), 3)],
+            "n_within_95_105": n_within_5,
+            "n_within_90_110": n_within_10,
+            "n_k_exact": n_k_exact_g,
+            "gamma_median": round(float(np.median([r["gamma_direct_g_matched"] for r in rows])), 3),
+            "gamma_iqr": [
+                round(float(np.percentile([r["gamma_direct_g_matched"] for r in rows], 25)), 3),
+                round(float(np.percentile([r["gamma_direct_g_matched"] for r in rows], 75)), 3),
+            ],
+            "ht4_delta_count": {"mean": d_g_ht4[0], "ci95": [d_g_ht4[1], d_g_ht4[2]], "median": round(float(np.median([r["delta_count_direct_g_matched"] for r in rows])), 3)},
+            "ht4_reassignment": {"mean": r_g_ht4[0], "ci95": [r_g_ht4[1], r_g_ht4[2]]},
+            "ht4_delta_aecs": {"mean": a_g_ht4[0], "ci95": [a_g_ht4[1], a_g_ht4[2]]},
+            "ht4_nvi": {"mean": nvi_g_ht4[0], "ci95": [nvi_g_ht4[1], nvi_g_ht4[2]]},
+            "spearman_abs_log_g_vs_delta": sp_dg,
+        }
+
+    out_p = RES_DIR / "layer2_granularity_and_coherence_diagnostics.json"
+    if args.only_g_matched:
+        existing = json.loads(out_p.read_text(encoding="utf-8"))
+        g_tasks = [(i, item, args.n_seeds, args.n_starts) for i, item in enumerate(manifest)]
+        g_tasks.sort(key=lambda t: (RAW_CORP_DIR / t[1]["corpus_file"]).stat().st_size, reverse=True)
+        g_by_doi: dict[str, dict[str, Any]] = {}
+        done = 0
+        with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers) as ex:
+            futs = [ex.submit(_eval_direct_g_matched_one, t) for t in g_tasks]
+            for fut in concurrent.futures.as_completed(futs):
+                _, g_rec = fut.result()
+                g_by_doi[g_rec["doi"].lower()] = g_rec
+                done += 1
+                if done % 10 == 0 or done == len(manifest):
+                    LOGGER.info("Direct G-matched progress: %d/%d corpora (%.1fs)", done, len(manifest), time.time() - t0)
+        for rec in existing["reviews"]:
+            g_rec = g_by_doi[rec["doi"].lower()]
+            for k, v in g_rec.items():
+                if k != "doi":
+                    rec[k] = v
+        existing["effective_granularity"]["direct_g_matched_n59"] = _summarize_direct_g(existing["reviews"])
+        out_p.write_text(json.dumps(existing, indent=2), encoding="utf-8")
+        dg = existing["effective_granularity"]["direct_g_matched_n59"]
+        LOGGER.info(
+            "Updated direct G-matched n=59 in %.1fs: G-ratio med=%.3f IQR=%s | HT4 Delta=%.3f %s | Reass=%.1f%% %s | AECS=%.3f | NVI=%.3f",
+            time.time() - t0, dg["g_ratio_median"], dg["g_ratio_iqr"],
+            dg["ht4_delta_count"]["mean"], dg["ht4_delta_count"]["ci95"],
+            100.0 * dg["ht4_reassignment"]["mean"], [round(100.0 * x, 1) for x in dg["ht4_reassignment"]["ci95"]],
+            dg["ht4_delta_aecs"]["mean"], dg["ht4_nvi"]["mean"],
+        )
+        return
+
     prod = json.loads((RES_DIR / "layer2_counting_audit_production.json").read_text(encoding="utf-8"))
     s1rb = json.loads((RES_DIR / "layer2_s1_and_rb_diagnostics.json").read_text(encoding="utf-8"))
     v1b = json.loads((RES_DIR / "layer2_v1_expanded_benchmark.json").read_text(encoding="utf-8"))
     v1_gmid = {r["doi"].lower(): float(r["vos_as_v1"]["gamma_plateau_mid"]) for r in v1b["reviews"]}
-    q4_w = {q: float(l0["strata"][q]["weight_Wh"]) for q in ("Q1", "Q2", "Q3", "Q4")}
 
     tasks = [
         (i, item, v1_gmid[item["doi"].lower()], args.n_seeds, args.n_starts, args.n_rewires)
@@ -521,6 +732,7 @@ def main() -> None:
                 "mean": g_tight_95_ci[0],
                 "ci95": [g_tight_95_ci[1], g_tight_95_ci[2]],
             },
+            "direct_g_matched_n59": _summarize_direct_g(recs),
         },
         "s1_mcmc_mixing": {
             "swap_accept_min": round(float(np.min(accs)), 4),

@@ -4,7 +4,7 @@ This archive accompanies the manuscript *"Counting-Rule Instability in Bibliomet
 
 ## Contents
 
-- `biblio_audit/` — Clean-room MIT-licensed Python package (`biblio-audit` v1.0.0) implementing VOSviewer 1.6.20/1.6.21 normalization parity (`VOS_AS_CPM`, `VOS_Frac_CPM`, `Leiden_RBConfig`), matched-granularity resolution sweeps, `Delta_count`, exact `O(N)` `ECS` / hypergeometric `AECS`, metric `VI`, Hungarian core-node reassignment, causal temporal bipartite null models, and multi-database parsers.
+- `biblio_audit/` — Clean-room MIT-licensed Python package (`biblio-audit` v1.0.2) implementing VOSviewer 1.6.20/1.6.21 normalization parity (`VOS_AS_CPM`, `VOS_Frac_CPM`, `Leiden_RBConfig`), matched-granularity resolution sweeps, `Delta_count`, exact `O(N)` `ECS` / hypergeometric `AECS`, metric `VI`, Hungarian core-node reassignment, causal temporal bipartite null models, and multi-database parsers.
 - `experiments/src_audit/` — Experiment counting engine (`counting_engine.py`) and full-text reporting feature parser (`extract_audit_features.py`).
 - `experiments/scripts/` — Deterministic data-harvesting, corpus-reconstruction, Layer-0/1/2 analysis scripts (`01_*.py` to `09_*.py`), and the symbolic/rational formal verification suite (`verify_propositions_sympy.py`).
 - `experiments/tests/` — Automated unit and parity tests (`test_box1_parity.py`, `test_counting_engine.py`, `test_extract_audit_features.py`).
